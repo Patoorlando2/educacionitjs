@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>EducacionIT - JavaScript</title>
+</head>
+<body>
+
+<button onclick="console.log('boton apretado')">Apretar</button>
+
+
+<button onclick="incrementar()">incrementar</button>
+<button onclick="reset()">reset</button>
+<span>0</span>
+<br>
+
+<p id="texto">
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
+
+
+<!-- Evento de click -->
+<script>
+	var contador = 0;
+	representarContador(contador);
+
+
+
+
+
+	function representarContador(cont){
+		document.querySelector('span').innerText = cont;
+	}
+
+	function incrementar(){
+		contador++;
+		representarContador(contador);
+	}
+	function reset(){
+		contador = 0;
+		representarContador(contador);
+	}
+
+	document.querySelector('#texto').onmouseover = mouseOver;
+	function mouseOver(){
+		console.log('el mouse esta pasando por encima del elemento.');
+		document.querySelector('#texto').style.backgroundColor = 'black';
+		document.querySelector('#texto').style.color = 'white';
+	}
+
+	document.querySelector('#texto').onmouseleave = mouseLeave;
+	function mouseLeave(){
+		console.log('el mouse esta fuera del elemento.');
+		document.querySelector('#texto').style.backgroundColor = '';
+		document.querySelector('#texto').style.color = '';
+	}
+
+
+</script>
+
+
+
+
+<script type="text/javascript" src="array-object.js"></script>
+<script type="text/javascript" src="funciones.js"></script>
+<script type="text/javascript" src="metodos.js"></script>
+</body>
+</html>

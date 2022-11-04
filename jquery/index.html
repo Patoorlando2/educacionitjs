@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+	<title>JQuery para acceder al DOM(document object method)</title>
+	<meta charset="utf-8">
+
+	<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<h3 class="titulo">
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</h3>
+	<hr>
+
+
+	<button>Ocultar</button>
+	<p id="parrafo">
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</p>
+
+	<script>
+		//Jquery OnMouseOver
+		$('.titulo').mouseover(onMouseOver);
+
+		function onMouseOver() {
+			console.log('El mouse está pasando por encima del elemento.');
+
+			$('.titulo').css('background-color','#000');
+			$('.titulo').css('color','#fff');
+		}
+
+
+		//Jquery onMouseLeave
+
+		$('.titulo').mouseleave(onMouseLeave);
+
+		function onMouseLeave() {
+			console.log('El mouse está pasando por fuera del elemento.');
+
+			$('.titulo').css('background-color','');
+			$('.titulo').css('color', '');
+		}
+		// finished Jquery
+
+		// onMouseOver & onMouseLeave  js puro
+		// control del color de fondo del titulo (evento de mouse)
+		
+
+		/*document.querySelector('.titulo').onmouseover = onMouseOver;
+
+		function onMouseOver() {
+			console.log('El mouse está pasando por encima del elemento.');
+
+			document.querySelector('.titulo').style.backgroundColor = '#000';
+			document.querySelector('.titulo').style.color = '#fff';
+		}
+
+
+		
+
+		document.querySelector('.titulo').onmouseleave = onMouseLeave;
+
+		function onMouseLeave() {
+			console.log('El mouse está pasando por fuera del elemento.');
+
+			document.querySelector('.titulo').style.backgroundColor = '';
+			document.querySelector('.titulo').style.color = '';
+		}*/
+
+		//control de la vista del parrafo (evento de click) - Jquery
+		var oculto = false;
+		$('button').click(onBoton);
+
+		function onBoton() {
+			 oculto = !oculto;
+			console.log(oculto);
+
+			//$('#parrafo').css('display', oculto? 'none' : 'block');
+			var ref = $('#parrafo');
+			//oculto? ref.hide() : ref.show();
+			oculto? ref.fadeOut() : ref.fadeIn();
+			$('button').text(oculto? 'Mostrar' : 'Ocultar');
+		}
+
+
+
+
+
+		//control de la vista del parrafo (evento de click) - js puro
+		/*var oculto = false;
+		document.querySelector('button').onclick = onBoton;
+
+		function onBoton() {
+			 oculto = !oculto;
+			console.log(oculto);
+
+			document.getElementById('parrafo').style.display = oculto? 'none' : 'block';
+			document.querySelector('button').innerHTML = oculto? 'Mostrar' : 'Ocultar';
+		}*/
+
+		// Evento de fin d ecarga del documento HTML Jquery
+
+		function start(){
+			console.warn("El documento html esta cargado en forma completa");
+		}
+
+		//con js puro
+		//window.onload = start;
+
+		// Con Jquery
+		$(document).ready(start);
+
+
+	</script>
+
+</body>
+</html>
