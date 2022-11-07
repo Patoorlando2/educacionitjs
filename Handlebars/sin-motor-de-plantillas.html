@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generación de HTML con datos: SIN motor de plantillas</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<h1>SIN motor de plantillas</h1>
+
+	<div id="info"></div>
+
+
+	<script>
+		const persona = {nombre: 'Ana', apellido: 'Lopez', edad: 21}
+		const info = document.getElementById('info')
+
+		// JS5 - Concatenación de strings
+		/*info.innerHTML =
+			'<b style="color:blue;">Nombre: </b>' + persona.nombre + '<br>' +
+			'<b style="color:red;">Apellido: </b>' + persona.apellido + '<br>' +
+			'<b style="color:green;">Edad: </b>' + persona.edad + '<br>'*/
+
+		// ES6 - Templates Strings
+		info.innerHTML =`
+			<b style="color:blue;">Nombre: </b> ${persona.nombre} <br> 
+			<b style="color:red;">Apellido: </b>${persona.apellido} <br>
+			<b style="color:green;">Edad: </b>  ${persona.edad} <br>
+		`
+	</script>
+
+</body>
+</html>

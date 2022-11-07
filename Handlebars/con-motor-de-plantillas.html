@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generación de HTML con datos: CON motor de plantillas HandleBars</title>
+	<meta charset="utf-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+	<h1>CON motor de plantillas</h1>
+
+	<div id="info"></div>
+
+	<script id="template-para-compilar" type="text/x-handlebars-template" >
+		<b style="color:blue;">Nombre: </b> {{nombre}} <br> 
+		<b style="color:red;">Apellido: </b>{{apellido}} <br>
+		<b style="color:green;">Edad: </b>  {{edad}} <br>
+	</script>
+
+
+	<script>
+		const persona = {nombre: 'Ana', apellido: 'mei', edad: 24}
+		const info = document.getElementById('info')
+
+		/*const template = Handlebars.compile(`
+			<b style="color:blue;">Nombre: </b> {{nombre}} <br> 
+			<b style="color:red;">Apellido: </b>{{apellido}} <br>
+			<b style="color:green;">Edad: </b>  {{edad}} <br>
+		`)*/
+
+		const plantilla = document.getElementById('template-para-compilar').innerHTML;
+		const template = Handlebars.compile(plantilla);
+
+		info.innerHTML = template(persona);
+
+
+
+
+		// ES6 - Templates Strings
+		/*info.innerHTML =`
+			<b style="color:blue;">Nombre: </b> ${persona.nombre} <br> 
+			<b style="color:red;">Apellido: </b>${persona.apellido} <br>
+			<b style="color:green;">Edad: </b>  ${persona.edad} <br>
+		`*/
+
+	</script>
+
+</body>
+</html>
